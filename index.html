@@ -1,252 +1,78 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nihiro Tamura | 田村仁浩</title>
-<meta name="description" content="田村仁浩 / Nihiro Tamura — 大阪大学大学院 博士後期課程・石黒研究室。ロボティクスとアンドロイドサイエンスを専攻。">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg: #121316;
-    --bg-card: #1b1d22;
-    --border: #2a2d34;
-    --text: #f0f0f0;
-    --text-muted: #9a9ca6;
-    --signal: #5fe0c7;
-    --human: #e3a177;
-  }
-  *{ box-sizing: border-box; }
-  html{ scroll-behavior: smooth; }
-  body{
-    margin:0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-  }
-  h1,h2,h3{
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    margin: 0;
-  }
-  .mono{ font-family: 'IBM Plex Mono', monospace; }
-  a{ color: var(--signal); text-decoration: none; }
-  a:hover{ text-decoration: underline; }
-  a:focus-visible, button:focus-visible{
-    outline: 2px solid var(--signal);
-    outline-offset: 3px;
-  }
-
-  .wrap{
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  nav{
-    position: sticky; top:0; z-index:10;
-    background: rgba(18,19,22,0.85);
-    backdrop-filter: blur(6px);
-    border-bottom: 1px solid var(--border);
-  }
-  nav .wrap{
-    display:flex; align-items:center; justify-content:space-between;
-    padding-top: 16px; padding-bottom: 16px;
-  }
-  nav .brand{ font-family:'Space Grotesk'; font-size: 15px; font-weight:600; }
-  nav .links{ display:flex; gap: 22px; }
-  nav .links a{ color: var(--text-muted); font-size: 14px; }
-  nav .links a:hover{ color: var(--text); text-decoration:none; }
-
-  /* Hero */
-  header.hero{ padding: 100px 0 70px; border-bottom: 1px solid var(--border); }
-  .eyebrow{
-    font-family:'IBM Plex Mono'; font-size: 12.5px; color: var(--signal);
-    letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 18px;
-  }
-  h1.name{ font-size: 44px; line-height: 1.15; margin-bottom: 6px; }
-  .name-en{ color: var(--text-muted); font-size: 18px; font-family:'IBM Plex Mono'; font-weight:400; margin-bottom: 22px;}
-  .affiliation{ color: var(--text-muted); font-size: 16px; max-width: 46ch; margin-bottom: 36px; }
-  .affiliation strong{ color: var(--text); font-weight: 500; }
-
-  /* Waveform signature */
-  .wave-block{ margin-top: 10px; }
-  .wave-svg{ width:100%; height:auto; display:block; }
-  .wave-caption{
-    display:flex; justify-content:space-between;
-    font-family:'IBM Plex Mono'; font-size: 11.5px; color: var(--text-muted);
-    margin-top: 10px;
-  }
-  .wave-caption .k0{ color: var(--signal); }
-  .wave-caption .k1{ color: var(--human); }
-
-  path.wave-robot{
-    fill:none; stroke: var(--signal); stroke-width: 2;
-    animation: crossfadeA 6s ease-in-out infinite;
-  }
-  path.wave-human{
-    fill:none; stroke: var(--human); stroke-width: 2;
-    animation: crossfadeB 6s ease-in-out infinite;
-  }
-  @keyframes crossfadeA{
-    0%, 100%{ opacity: 0.95; }
-    50%{ opacity: 0.15; }
-  }
-  @keyframes crossfadeB{
-    0%, 100%{ opacity: 0.15; }
-    50%{ opacity: 0.95; }
-  }
-  @media (prefers-reduced-motion: reduce){
-    path.wave-robot, path.wave-human{ animation: none; opacity: 0.55; }
-  }
-
-  section{ padding: 56px 0; border-bottom: 1px solid var(--border); }
-  section:last-of-type{ border-bottom: none; }
-  section h2{
-    font-size: 13px; font-family:'IBM Plex Mono'; letter-spacing:0.08em;
-    text-transform: uppercase; color: var(--text-muted); margin-bottom: 24px;
-  }
-  section h2 span{ color: var(--signal); margin-right: 8px; }
-
-  .about p{ font-size: 16.5px; color: var(--text); max-width: 62ch; }
-
-  .paper-card{
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 26px 28px;
-  }
-  .paper-card .venue{
-    font-family:'IBM Plex Mono'; font-size: 12px; color: var(--signal);
-    letter-spacing: 0.04em; margin-bottom: 10px;
-  }
-  .paper-card h3{
-    font-size: 19px; font-weight: 500; line-height: 1.45; margin-bottom: 14px;
-    color: var(--text);
-  }
-  .paper-card .doi{ font-family:'IBM Plex Mono'; font-size: 13.5px; color: var(--text-muted); }
-  .paper-card .doi a{ color: var(--human); }
-
-  .skills{ display:flex; flex-wrap:wrap; gap: 10px; }
-  .skill-tag{
-    font-family:'IBM Plex Mono'; font-size: 13px;
-    border: 1px solid var(--border); border-radius: 3px;
-    padding: 8px 14px; color: var(--text);
-  }
-  .skill-tag .en{ color: var(--text-muted); font-size: 11.5px; display:block; margin-top:2px;}
-
-  .contact-list{ display:flex; flex-direction:column; gap: 14px; }
-  .contact-row{ display:flex; align-items:baseline; gap: 14px; font-size: 15px; }
-  .contact-row .label{
-    font-family:'IBM Plex Mono'; font-size: 12px; color: var(--text-muted);
-    width: 70px; flex-shrink:0;
-  }
-
-  footer{ padding: 32px 0 60px; }
-  footer p{ font-family:'IBM Plex Mono'; font-size: 12px; color: var(--text-muted); margin:0; }
-
-  @media (max-width: 600px){
-    header.hero{ padding: 70px 0 50px; }
-    h1.name{ font-size: 32px; }
-    nav .links{ gap: 14px; }
-    .contact-row{ flex-direction:column; gap: 2px; }
-    .contact-row .label{ width:auto; }
-  }
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="田村 仁浩">
+<meta name="description" content="大阪大学大学院基礎工学研究科 石黒研究室 博士後期課程 田村仁浩のページ。アンドロイドの人らしい動きと自然なやり取りの研究。">
+<meta name="keywords" content="アンドロイド, ヒューマンロボットインタラクション, 人らしさ, ロボティクス, 大阪大学, 石黒研究室">
+<title>間合い : ご挨拶 — 田村 仁浩</title>
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id="top">
+<div class="wrap">
 
-<nav>
-  <div class="wrap">
-    <div class="brand mono">N. Tamura</div>
-    <div class="links">
-      <a href="#about">About</a>
-      <a href="#research">Research</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="wrap">
-    <div class="eyebrow">Robotics &amp; Android Science</div>
-    <h1 class="name">田村 仁浩</h1>
-    <div class="name-en">Nihiro Tamura</div>
-    <p class="affiliation">
-      <strong>大阪大学大学院</strong> 博士後期課程 / 石黒研究室<br>
-      The University of Osaka, PhD Student, Ishiguro Lab
-    </p>
-
-    <div class="wave-block">
-      <svg class="wave-svg" viewBox="0 0 680 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path class="wave-robot" d="M0,60 L60,60 L60,20 L120,20 L120,100 L180,100 L180,20 L240,20 L240,100 L300,100 L300,20 L360,20 L360,100 L420,100 L420,20 L480,20 L480,100 L540,100 L540,20 L600,20 L600,60 L680,60" />
-        <path class="wave-human" d="M0,60 C40,60 40,20 80,20 C120,20 120,100 160,100 C200,100 200,20 240,20 C280,20 280,100 320,100 C360,100 360,20 400,20 C440,20 440,100 480,100 C520,100 520,20 560,20 C600,20 600,60 680,60" />
-      </svg>
-      <div class="wave-caption">
-        <span class="k0">K → 0(ロボット的動作)</span>
-        <span class="k1">K → 1(人間らしい動作)</span>
-      </div>
-    </div>
-  </div>
+<header>
+  <p class="sitetitle"><a href="index.html">間合い &mdash; Maai</a></p>
+  <p class="modified">Last modified: Jul 24, 2026</p>
 </header>
 
-<section id="about">
-  <div class="wrap">
-    <h2><span>#</span>About</h2>
-    <div class="about">
-      <p>専攻はロボティクスとアンドロイドサイエンス。アンドロイドの動作がどの程度「人間らしく」見えるかを、制御パラメータとの関係から定量的に評価する研究に取り組んでいます。</p>
-    </div>
-  </div>
-</section>
+<hr>
 
-<section id="research">
-  <div class="wrap">
-    <h2><span>#</span>Research</h2>
-    <div class="paper-card">
-      <div class="venue">IEEE Access · 2026</div>
-      <h3>Quantification of Human-Like Motion of Androids in Relation to Control Parameters</h3>
-      <div class="doi">DOI: <a href="https://doi.org/10.1109/ACCESS.2026.3659342" target="_blank" rel="noopener">10.1109/ACCESS.2026.3659342</a></div>
-    </div>
-  </div>
-</section>
+<nav>
+  <span class="navlabel">目次</span>
+  <ul>
+    <li><span class="here">ご挨拶</span></li>
+    <li><a href="cv.html">経歴</a></li>
+    <li><a href="interest.html">研究の興味</a></li>
+    <li><a href="papers.html">業績</a></li>
+    <li class="lang"><a href="index_en.html">[English]</a></li>
+  </ul>
+</nav>
 
-<section id="skills">
-  <div class="wrap">
-    <h2><span>#</span>Skills</h2>
-    <div class="skills">
-      <div class="skill-tag">制御手法のプログラミング<span class="en">Control method programming</span></div>
-      <div class="skill-tag">組み込み制御<span class="en">Embedded control</span></div>
-    </div>
-  </div>
-</section>
+<hr>
 
-<section id="contact">
-  <div class="wrap">
-    <h2><span>#</span>Contact</h2>
-    <div class="contact-list">
-      <div class="contact-row">
-        <span class="label mono">Email</span>
-        <a href="mailto:tamura.nihiro@irl.sys.es.osaka-u.ac.jp">tamura.nihiro@irl.sys.es.osaka-u.ac.jp</a>
-      </div>
-      <div class="contact-row">
-        <span class="label mono">ORCID</span>
-        <a href="https://orcid.org/0009-0004-1331-6669" target="_blank" rel="noopener">0009-0004-1331-6669</a>
-      </div>
-    </div>
-  </div>
-</section>
+<h1>ようこそ<span class="romaji">NIHIRO TAMURA &nbsp;/&nbsp; OSAKA UNIVERSITY</span></h1>
+
+<figure class="portrait">
+  <img src="img/photo.jpg" alt="田村仁浩の写真">
+  <figcaption>田村 仁浩</figcaption>
+</figure>
+
+<p>大阪大学大学院 基礎工学研究科 システム創成専攻 石黒研究室（知能ロボット学研究室）の博士後期課程1年、田村仁浩です。人に酷似したロボット、アンドロイドを対象に、その動きの人らしさと、人がアンドロイドを「使う」ときのやり取りについて研究しています。</p>
+
+<p>間合いとは、人と人とのあいだにある距離とタイミングのことです。相手に合わせて詰めたり空けたりする、その調整が自然にできるとき、私たちはやり取りが滞りなく進んでいると感じます。アンドロイドを人として受け入れられるかどうかも、結局はここに懸かっていると考えています。見た目が人に近づくほど、こちらは相手に人と同じ間合いを期待します。動きが少しでもずれれば違和感になり、動かし方に手順を要求されれば、相手は道具に戻ってしまいます。</p>
+
+<p>アンドロイドの側の動きと、アンドロイドに向けられる人の側のふるまい。その両方から間合いを設計したいというのが、いまの私の関心です。</p>
+
+<h2>更新履歴</h2>
+
+<dl class="record">
+  <dt>2026.04</dt>
+  <dd class="now">大阪大学大学院 基礎工学研究科 システム創成専攻 博士後期課程に進学しました。</dd>
+
+  <dt>2026.03</dt>
+  <dd>博士前期課程を修了しました。修士論文では、アンドロイドの動作の人らしさを制御パラメータと結びつけて定量化する枠組みを扱いました。</dd>
+
+  <dt>2026.01</dt>
+  <dd>初めての論文が <span class="venue">IEEE Access</span> に掲載されました。<a href="papers.html">業績のページ</a>に掲載しています。</dd>
+</dl>
+
+<h2>連絡先</h2>
+
+<p>
+田村 仁浩（たむら にひろ）<br>
+〒560-8531 大阪府豊中市待兼山町1-3<br>
+大阪大学大学院 基礎工学研究科 システム創成専攻 石黒研究室<br>
+E-mail: <a href="mailto:tamura.nihiro@irl.sys.es.osaka-u.ac.jp">tamura.nihiro@irl.sys.es.osaka-u.ac.jp</a>
+</p>
+
+<p class="pagetop"><a href="#top">&#9650; ページ先頭へ</a></p>
 
 <footer>
-  <div class="wrap">
-    <p>© 2026 Nihiro Tamura</p>
-  </div>
+  Copyright &copy; Nihiro Tamura
 </footer>
 
+</div>
 </body>
 </html>

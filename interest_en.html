@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Nihiro Tamura">
+<meta name="description" content="Quantifying the human-likeness of android motion, and enabling users to operate androids through natural interaction.">
+<meta name="keywords" content="android, human-likeness, motion generation, ADRC, human-robot interaction">
+<title>Maai : Research Interests &mdash; Nihiro Tamura</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body id="top">
+<div class="wrap">
+
+<header>
+  <p class="sitetitle"><a href="index_en.html">Maai &mdash; 間合い</a></p>
+  <p class="modified">Last modified: Jul 24, 2026</p>
+</header>
+
+<hr>
+
+<nav>
+  <span class="navlabel">CONTENTS</span>
+  <ul>
+    <li><a href="index_en.html">Greeting</a></li>
+    <li><a href="cv_en.html">CV</a></li>
+    <li><span class="here">Research Interests</span></li>
+    <li><a href="papers_en.html">Publications</a></li>
+    <li class="lang"><a href="interest.html">[日本語]</a></li>
+  </ul>
+</nav>
+
+<hr>
+
+<h1>Research Interests<span class="romaji">RESEARCH INTERESTS</span></h1>
+
+<p class="lead">That an android moves in a human-like way. And that a person can ask an android for something the way they would ask a person. I work on both.</p>
+
+<h2>Human-likeness of android motion</h2>
+
+<p>My work so far has concerned human-like motion in robots, and androids in particular: robots whose appearance closely resembles that of a human being. The closer the appearance, the more an observer expects the movement to be equally natural, and the less any deviation escapes notice.</p>
+
+<p>Traditionally this has been split into two separate problems: generating a motion trajectory, and realizing that trajectory on the hardware. Trajectory generation, however, tends to rely on subjective evaluation and lacks quantitative metrics, while trajectory realization has limited reproducibility because it depends on the physical characteristics and control performance of the android. Treating the two apart makes human-like motion hard to reach.</p>
+
+<p>I therefore proposed an approach that treats the human-likeness of realized motion quantitatively, assuming the target trajectory can be reproduced stably. For control I adopted Active Disturbance Rejection Control (ADRC), which suppresses disturbances and yields stable responses even for complex nonlinear systems. Engineering metrics were computed from motion data obtained by varying the ADRC parameters, and subjective perceptions of human-likeness were quantified through pairwise comparison experiments. Analysis of the relationship between the two showed reasonable agreement between the ranking trends of the engineering metrics and those of the subjective evaluations &mdash; which means human-likeness can be approached from the side of the control parameters.</p>
+
+<h2>Users and customers</h2>
+
+<p>Once androids become part of everyday life, two kinds of people will stand around them: the <strong>user</strong>, who instructs the android, and the <strong>customer</strong>, who receives a service from it. In a restaurant, the user is the owner, the customer is the diner, and the android is the waiter.</p>
+
+<p>Most existing work has examined how human-like the exchange between the android and the customer can be. Far less attention has gone to the exchange with the user. Yet users become customers themselves the moment they step outside the place they operate: the same person follows a procedure when giving instructions, and treats the android as a human presence when being served. That asymmetry cannot hold for long.</p>
+
+<p>Unless a user can operate an android through the same <strong>natural interaction</strong> they would use to ask a person to do something, accepting the android as a human presence will remain out of reach.</p>
+
+<h2>Current work</h2>
+
+<p>I am working toward a system that lets users operate androids through natural interaction. The aim is not to reduce the effort of giving instructions, but to let the act of instructing stay within behaviour a person would use with another person.</p>
+
+<p class="pagetop"><a href="#top">&#9650; Page Top</a></p>
+
+<footer>
+  Copyright &copy; Nihiro Tamura
+</footer>
+
+</div>
+</body>
+</html>
