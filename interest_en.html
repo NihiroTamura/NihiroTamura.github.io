@@ -6,15 +6,15 @@
 <meta name="author" content="Nihiro Tamura">
 <meta name="description" content="Quantifying the human-likeness of android motion, and enabling users to operate androids through natural interaction.">
 <meta name="keywords" content="android, human-likeness, motion generation, ADRC, human-robot interaction">
-<title>Maai : Research Interests &mdash; Nihiro Tamura</title>
+<title>Human-Likeness of Androids : Research Interests &mdash; Nihiro Tamura</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body id="top">
 <div class="wrap">
 
 <header>
-  <p class="sitetitle"><a href="index_en.html">Maai &mdash; 間合い</a></p>
-  <p class="modified">Last modified: Jul 24, 2026</p>
+  <p class="sitetitle"><a href="index_en.html">Human-Likeness of Androids</a></p>
+  <p class="modified">Last modified: Aug. 19, 2026</p>
 </header>
 
 <hr>
@@ -34,7 +34,7 @@
 
 <h1>Research Interests<span class="romaji">RESEARCH INTERESTS</span></h1>
 
-<p class="lead">That an android moves in a human-like way. And that a person can ask an android for something the way they would ask a person. I work on both.</p>
+<p class="lead">I focus on two aspects: human-like movement in androids and natural, human-like interaction between people and androids.</p>
 
 <h2>Human-likeness of android motion</h2>
 
@@ -42,19 +42,25 @@
 
 <p>Traditionally this has been split into two separate problems: generating a motion trajectory, and realizing that trajectory on the hardware. Trajectory generation, however, tends to rely on subjective evaluation and lacks quantitative metrics, while trajectory realization has limited reproducibility because it depends on the physical characteristics and control performance of the android. Treating the two apart makes human-like motion hard to reach.</p>
 
-<p>I therefore proposed an approach that treats the human-likeness of realized motion quantitatively, assuming the target trajectory can be reproduced stably. For control I adopted Active Disturbance Rejection Control (ADRC), which suppresses disturbances and yields stable responses even for complex nonlinear systems. Engineering metrics were computed from motion data obtained by varying the ADRC parameters, and subjective perceptions of human-likeness were quantified through pairwise comparison experiments. Analysis of the relationship between the two showed reasonable agreement between the ranking trends of the engineering metrics and those of the subjective evaluations &mdash; which means human-likeness can be approached from the side of the control parameters.</p>
+<p>I therefore proposed an approach that treats the human-likeness of realized motion quantitatively, assuming the target trajectory can be reproduced stably. For control I adopted Active Disturbance Rejection Control (ADRC), which suppresses disturbances and yields stable responses even for complex nonlinear systems. Engineering metrics were computed from motion data obtained by varying the ADRC parameters, and subjective perceptions of human-likeness were quantified through pairwise comparison experiments. As a result, we found that the ranking trends of the engineering metrics generally agreed with those of the subjective evaluations, and proposed a method for designing human-like motion based on control parameters.</p>
 
-<h2>Users and customers</h2>
+<h2>Users and Customers</h2>
 
 <p>Once androids become part of everyday life, two kinds of people will stand around them: the <strong>user</strong>, who instructs the android, and the <strong>customer</strong>, who receives a service from it. In a restaurant, the user is the owner, the customer is the diner, and the android is the waiter.</p>
 
-<p>Most existing work has examined how human-like the exchange between the android and the customer can be. Far less attention has gone to the exchange with the user. Yet users become customers themselves the moment they step outside the place they operate: the same person follows a procedure when giving instructions, and treats the android as a human presence when being served. That asymmetry cannot hold for long.</p>
+<p>Most existing work on androids has focused on how naturally they can interact with customers. n contrast, comparatively little attention has been paid to interactions with users&mdash; the people who instruct and operate the androids. However, a user may also become a customer when they leave the environment in which they operate the android.</p>
 
-<p>Unless a user can operate an android through the same <strong>natural interaction</strong> they would use to ask a person to do something, accepting the android as a human presence will remain out of reach.</p>
+<p>If users cannot interact with androids as naturally as they would with another person when giving instructions, it may be difficult for them to accept androids as human-like entities. Therefore, <strong>I aim to develop a system that allows users to interact with androids naturally</strong>, just as they would when giving instructions to another person.</p>
 
 <h2>Current work</h2>
 
-<p>I am working toward a system that lets users operate androids through natural interaction. The aim is not to reduce the effort of giving instructions, but to let the act of instructing stay within behaviour a person would use with another person.</p>
+<p>I am working to develop a system that allows users to interact with androids naturally.</p>
+
+<p>To achieve this, it is essential for an android to reliably reproduce the movements instructed by the user. However, because androids have body structures similar to those of humans, the effects of gravity can change significantly depending on their posture, making it difficult to achieve stable motion across different positions.</p>
+
+<p>So far, I have improved the stability and responsiveness of android motion by using Active Disturbance Rejection Control (ADRC). However, stable motion remains challenging in positions where the effects of gravity change significantly.</p>
+
+<p>To address this issue, I am now introducing feedforward control in addition to ADRC. Feedforward control anticipates the forces required for the android to move and provides them in advance. By combining these two control approaches, I aim to enable androids to move stably across a wide range of postures.</p>
 
 <p class="pagetop"><a href="#top">&#9650; Page Top</a></p>
 

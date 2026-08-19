@@ -132,6 +132,19 @@ li { margin-bottom: 0.4rem; }
 
 .lead { color: var(--ink-soft); }
 
+.download {
+  display: inline-block;
+  margin: 0.2rem 0 1.1rem;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--rule);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  color: var(--link);
+}
+.download:hover { border-color: var(--link-hover); color: var(--link-hover); }
+
 .note {
   font-size: 0.85rem;
   color: var(--ink-soft);
@@ -225,6 +238,81 @@ li { margin-bottom: 0.4rem; }
 .pub .title { }
 .pub .venue { font-style: italic; }
 .pub .me { border-bottom: 1px solid var(--ink); }
+
+/* ---------- experience / project entries ---------- */
+
+.entry {
+  margin: 0 0 1.8rem;
+  border-left: 1px solid var(--rule);
+  padding-left: 1.4rem;
+}
+
+.entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.6rem 1.2rem;
+  flex-wrap: wrap;
+}
+
+.entry-role { font-size: 1.02rem; letter-spacing: 0.02em; }
+
+.entry-date {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.entry-org {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-top: 0.15rem;
+}
+
+.entry-tech {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+  margin-top: 0.2rem;
+}
+
+.entry-list {
+  margin: 0.55rem 0 0;
+  padding-left: 1.1em;
+}
+
+.entry-list li { margin-bottom: 0.32rem; line-height: 1.72; }
+.entry-list li.lead { list-style: none; margin-left: -1.1em; }
+
+/* ---------- skills ---------- */
+
+.skills { list-style: none; padding: 0; margin: 0; }
+
+.skills li {
+  margin-bottom: 0.55rem;
+  padding-left: 9em;
+  text-indent: -9em;
+  line-height: 1.7;
+}
+
+.skills .k {
+  display: inline-block;
+  width: 9em;
+  text-indent: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  color: var(--ink-soft);
+  vertical-align: baseline;
+}
+
+@media (max-width: 620px) {
+  .skills li { padding-left: 0; text-indent: 0; }
+  .skills .k { display: block; width: auto; margin-bottom: 0.15rem; }
+}
 
 /* ---------- footer ---------- */
 
